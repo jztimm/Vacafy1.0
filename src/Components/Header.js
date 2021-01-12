@@ -7,11 +7,14 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {Avatar} from '@material-ui/core'
 import {  Link } from "react-router-dom";
 import {auth} from "../firebase"
+import {useStateValue} from '../StateProvider'
 
 function Header() {
 
+  const [{user}, dispatch] = useStateValue();
+
   const handleAuth = () => {
-    if (auth) {
+    if (user) {
       auth.signOut();
     }
   }
@@ -32,13 +35,13 @@ function Header() {
       </div>
 
       <div className="header_right">
-      <Link to={!auth && "/login"} className="header_link">
-              <div onClick={handleAuth} className="header_option">
-                <span className="header_optionLineOne"> 
-                {auth ? `Hello ${auth.email}` : `Become a Host`}</span>
-                <span className="header_optionLineTwo">{auth ? ` Sign Out` : ``}</span>
-              </div>
-            </Link>
+      <Link to={!user && "/login"} className="header_link">
+          <div onClick={handleAuth} className="header_option">
+            <span className="header_optionLineOne"> 
+            {user ? `Hello ${user.email}` : `Become a Host`}</span>
+            <span className="header_optionLineTwo">{user ? ` Sign Out` : ``}</span>
+          </div>
+        </Link>
         <LanguageIcon />
         <ExpandMoreIcon />
         <Avatar />
