@@ -7,6 +7,7 @@ import Header from './Components/Header.js'
 import Footer from './Components/Footer.js'
 import SearchPage from './Components/SearchPage'
 import Login from './Components/Login'
+import Signup from './Components/Signup'
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
           </Route>
           <Route path="/">
             <Home />
