@@ -36,6 +36,9 @@
   margin-bottom: 10px;
   background-color: white;
   width: 98%;
+  border: 1px solid lightgrey;
+  border-radius: 999px;
+  outline: none;
 }
 
 .login_container > p {
@@ -63,9 +66,13 @@
   background-color: lightgrey;
 }
 
-/* .login_signUpButton {
-  width: 100%;
+.dropdown {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  max-width: fit-content;
   height: 30px;
-  border: 1px solid;
-  margin-top: 10px;
-} */
+  border: 1px solid lightgrey;
+  border-radius: 999px;
+  outline: none;
+}
