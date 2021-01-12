@@ -27,13 +27,6 @@ function signup() {
 
       return (
          <div className="signup">
-            <Link to="/">
-               <img
-               className="signup_logo"
-               src="/Sven_notag.png"
-               alt="Sven Logo"
-               />
-            </Link>
    
             <div className="signup_container">
                <h1>Create Account</h1>

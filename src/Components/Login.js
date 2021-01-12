@@ -24,13 +24,7 @@ function Login() {
 
   return (
       <div className="login">
-        <Link to="/">
-            <img
-            className="login_logo"
-            src="/Sven_notag.png"
-            alt="Sven Logo"
-            />
-        </Link>
+        
         <div className="login_container">
             <h1>Sign In</h1>
             <form>
