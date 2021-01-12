@@ -5,17 +5,19 @@ import SearchIcon from '@material-ui/icons/Search';
 import LanguageIcon from '@material-ui/icons/Language';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {Avatar} from '@material-ui/core'
-import {  Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {auth} from "../firebase"
 import {useStateValue} from '../StateProvider'
 
 function Header() {
-
+  const history = useHistory();
   const [{user}, dispatch] = useStateValue();
 
   const handleAuth = () => {
     if (user) {
       auth.signOut();
+      history.push('/')
+      window.location.reload(false);
     }
   }
 
