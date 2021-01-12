@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
-// import { auth } from '../firebase';
 import '../Styles/Login.css';
+import { auth } from '../firebase';
 
 function Login() {
   
@@ -10,16 +10,16 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // const signIn = e => {
-  //     e.preventDefault();
+  const signIn = e => {
+      e.preventDefault();
 
-  //     auth
-  //     .signInWithEmailAndPassword(email, password)
-  //       .then(auth => {
-  //           history.push('/')
-  //       })
-  //       .catch(err => alert(err.message))
-  // }
+      auth
+      .signInWithEmailAndPassword(email, password)
+        .then(auth => {
+            history.push('/')
+        })
+        .catch(err => alert(err.message))
+  }
 
 
   return (
@@ -32,7 +32,7 @@ function Login() {
               <input type="email" name="email" value={email} onChange={e => setEmail(e.target.value)}/>
               <h5>Password</h5>
               <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)}/>
-              <button type="submit" /*onClick={signIn}*/ className="login_signInButton">Sign In</button>
+              <button type="submit" onClick={signIn} className="login_signInButton">Sign In</button>
             </form>
             <p>
             By continuing you agree to our Terms and Conditions, our Privacy Policy, and the My Best Buy® Program Terms.
