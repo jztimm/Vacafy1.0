@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 
@@ -8,8 +8,22 @@ import Footer from './Components/Footer.js'
 import SearchPage from './Components/SearchPage'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
+import { auth } from './firebase';
 
 function App() {
+
+  useEffect(() => {
+    auth.onAuthStateChanged(authUser => {
+      console.log('THE USER IS >>> ', authUser)
+      
+      if (authUser) {
+        // user is logged in
+      } else {
+        // user is logged out
+      }
+    })
+  }, [])
+
   return (
     <div className="app">
       <Router>

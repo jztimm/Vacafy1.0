@@ -6,8 +6,16 @@ import LanguageIcon from '@material-ui/icons/Language';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import {Avatar} from '@material-ui/core'
 import {  Link } from "react-router-dom";
+import {auth} from "../firebase"
 
 function Header() {
+
+  const handleAuth = () => {
+    if (auth) {
+      auth.signOut();
+    }
+  }
+
   return (
     <div className="header">
       <Link to="/">
@@ -24,9 +32,13 @@ function Header() {
       </div>
 
       <div className="header_right">
-        <Link to="/login">
-          <p>Become a host</p>
-        </Link>
+      <Link to={!auth && "/login"} className="header_link">
+              <div onClick={handleAuth} className="header_option">
+                <span className="header_optionLineOne"> 
+                {auth ? `Hello ${auth.email}` : `Become a Host`}</span>
+                <span className="header_optionLineTwo">{auth ? ` Sign Out` : ``}</span>
+              </div>
+            </Link>
         <LanguageIcon />
         <ExpandMoreIcon />
         <Avatar />
