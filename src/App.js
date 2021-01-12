@@ -9,8 +9,11 @@ import SearchPage from './Components/SearchPage'
 import Login from './Components/Login'
 import Signup from './Components/Signup'
 import { auth } from './firebase';
+import { useStateValue } from './StateProvider';
 
 function App() {
+
+  const [{}, dispatch] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
